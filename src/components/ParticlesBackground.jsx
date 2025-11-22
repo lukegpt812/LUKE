@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
@@ -36,7 +36,5 @@ const ParticlesBackground = () => {
         </div>
     );
 };
-
-import { useState } from 'react';
 
 export default ParticlesBackground;

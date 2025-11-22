@@ -19,7 +19,13 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: black;
+  /* Prevent white flash */
   color: var(--color-text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';

@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navigation from './components/ui/Navigation';
 import CustomCursor from './components/ui/CustomCursor';
 import Hero from './components/sections/Hero';
@@ -45,6 +47,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
         </Routes>
+        <Analytics />
+        <SpeedInsights />
       </div>
     </Router>
   );

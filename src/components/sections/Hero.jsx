@@ -115,7 +115,7 @@ export default function Hero() {
                                 controls={false}
                                 responsive={false}
                                 className="absolute top-0 left-0 w-full h-full object-cover"
-                                style={{ width: '100%', height: '100%', object- fit: 'cover' }}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                         </div>
                     )}

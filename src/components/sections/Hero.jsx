@@ -105,27 +105,19 @@ export default function Hero() {
                             }}
                         />
                     ) : (
-                        // Cloudflare Stream
-                        <div className="absolute inset-0 w-full h-full opacity-60 pointer-events-none">
-                            <div className="relative w-full h-full">
-                                <Stream
-                                    src={videoSources[currentVideoIndex]}
-                                    autoplay
-                                    loop
-                                    muted
-                                    controls={false}
-                                    responsive={false}
-                                    className="absolute top-0 left-0 w-full h-full object-cover"
-                                    style={{
-                                        position: 'absolute',
-                                        top: 0,
-                                        left: 0,
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover'
-                                    }}
-                                />
-                            </div>
+                        // Cloudflare Stream (Iframe fallback for better sizing control)
+                        <div className="absolute inset-0 w-full h-full opacity-60 pointer-events-none overflow-hidden">
+                            <iframe
+                                src={`https://iframe.videodelivery.net/${videoSources[currentVideoIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false`}
+                                className="absolute top-1/2 left-1/2 w-[177.77vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
+                                style={{
+                                    width: '100vw',
+                                    height: '100vh',
+                                    objectFit: 'cover'
+                                }}
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowFullScreen={true}
+                            />
                         </div>
                     )}
                     {/* Digital Noise Overlay - Removed missing asset */}

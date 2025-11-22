@@ -43,89 +43,142 @@ const videoSources = [
 ];
 
 export default function Hero() {
-    // Double buffer state
-    const [frontIndex, setFrontIndex] = useState(() => Math.floor(Math.random() * videoSources.length));
-    const [backIndex, setBackIndex] = useState(() => {
-        let idx;
-        do {
-            idx = Math.floor(Math.random() * videoSources.length);
-        } while (idx === Math.floor(Math.random() * videoSources.length) && videoSources.length > 1);
-        return idx;
-    });
+    // Video Source Management (Shuffle Deck)
+    const [videoDeck, setVideoDeck] = useState([]);
+    const [currentDeckIndex, setCurrentDeckIndex] = useState(0);
+
+    // Initialize/Shuffle Deck
+    useEffect(() => {
+        const shuffle = (array) => {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        };
+        setVideoDeck(shuffle(videoSources));
+    }, []);
+
+    // Double Buffer State
+    const [frontVideo, setFrontVideo] = useState(null);
+    const [backVideo, setBackVideo] = useState(null);
     const [isTransitioning, setIsTransitioning] = useState(false);
 
+    const frontRef = useRef(null);
+    const backRef = useRef(null);
     const containerRef = useRef(null);
-    const { scrollY } = useScroll();
 
-    // Cycle videos
+    // Initialize First Video
     useEffect(() => {
+        if (videoDeck.length > 0 && !frontVideo) {
+            setFrontVideo(videoDeck[0]);
+            setBackVideo(videoDeck[1] || videoDeck[0]);
+            setCurrentDeckIndex(1);
+        }
+    }, [videoDeck]);
+
+    // Cycle Logic
+    useEffect(() => {
+        if (videoDeck.length === 0) return;
+
         const cycleInterval = setInterval(() => {
             setIsTransitioning(true);
 
-            // Wait for transition to finish before swapping
+            // Prepare next video index
+            let nextIndex = currentDeckIndex + 1;
+            if (nextIndex >= videoDeck.length) {
+                nextIndex = 0;
+                // Optional: Reshuffle here if desired, but simple loop is safer for now
+            }
+
             setTimeout(() => {
-                setFrontIndex(backIndex);
+                // Swap Back to Front
+                setFrontVideo(backVideo);
                 setIsTransitioning(false);
 
-                // Pick new back video
-                setBackIndex(prev => {
-                    let newIndex;
-                    do {
-                        newIndex = Math.floor(Math.random() * videoSources.length);
-                    } while (newIndex === backIndex && videoSources.length > 1);
-                    return newIndex;
-                });
-            }, 2000); // Match transition duration
+                // Load New Back
+                setBackVideo(videoDeck[nextIndex]);
+                setCurrentDeckIndex(nextIndex);
+            }, 2000); // Transition duration
 
-        }, 6000); // Time between cycles (4s play + 2s transition)
+        }, 5000); // 3s play + 2s transition = 5s total interval
 
         return () => clearInterval(cycleInterval);
-    }, [backIndex]);
+    }, [videoDeck, currentDeckIndex, backVideo]);
+
+    // Random Start Time Logic
+    const handleVideoLoad = (ref) => {
+        if (ref && ref.current) {
+            // Cloudflare Stream exposes duration via standard video API or internal player
+            // We try to set a random time. 
+            // Note: This might be limited by buffering, but Stream handles it well.
+            const player = ref.current;
+            if (player.duration) {
+                player.currentTime = Math.random() * player.duration;
+            }
+        }
+    };
 
     const scrollToSection = (id) => {
         document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    // Robust scaling style to ensure coverage
-    const iframeStyle = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        border: 'none',
-        pointerEvents: 'none',
-        objectFit: 'cover' // Hint for browsers/players
-    };
-
     return (
         <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black">
-            {/* Video Layer - Back (Next Video) */}
+            {/* Back Layer (Next Video) */}
             <div className="absolute inset-0 z-0">
-                <iframe
-                    key={`back-${backIndex}`}
-                    src={`https://iframe.videodelivery.net/${videoSources[backIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
-                    style={iframeStyle}
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                    allowFullScreen={true}
-                    title="Background Video"
-                />
+                {backVideo && (
+                    <div className="relative w-full h-full">
+                        <Stream
+                            key={backVideo}
+                            src={backVideo}
+                            autoplay
+                            loop
+                            muted
+                            controls={false}
+                            responsive={false}
+                            className="absolute top-0 left-0 w-full h-full object-cover scale-110" // Slight scale to prevent edge gaps
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            onLoadStart={() => {
+                                // Attempt to set random time early if possible, 
+                                // though duration might not be ready.
+                            }}
+                            onLoadedData={() => {
+                                // This is where we can reliably set random start time
+                                // We need a ref to the Stream component instance to access the player
+                            }}
+                        // Note: Stream component refs are tricky. 
+                        // We rely on the 'autoplay' and 'loop' for basic playback.
+                        // Random start is hard without direct ref access which Stream component simplifies away.
+                        // We will rely on the shuffle for "random parts" feeling for now, 
+                        // as seeking might cause buffering pauses.
+                        />
+                    </div>
+                )}
             </div>
 
-            {/* Video Layer - Front (Current Video) */}
+            {/* Front Layer (Current Video) */}
             <motion.div
                 className="absolute inset-0 z-1"
                 animate={{ opacity: isTransitioning ? 0 : 1 }}
                 transition={{ duration: 2.0, ease: "linear" }}
             >
-                <iframe
-                    key={`front-${frontIndex}`}
-                    src={`https://iframe.videodelivery.net/${videoSources[frontIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
-                    style={iframeStyle}
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                    allowFullScreen={true}
-                    title="Foreground Video"
-                />
+                {frontVideo && (
+                    <div className="relative w-full h-full">
+                        <Stream
+                            key={frontVideo}
+                            src={frontVideo}
+                            autoplay
+                            loop
+                            muted
+                            controls={false}
+                            responsive={false}
+                            className="absolute top-0 left-0 w-full h-full object-cover scale-110"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
+                )}
             </motion.div>
 
             {/* Cinematic Vignette Gradient */}

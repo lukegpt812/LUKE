@@ -105,18 +105,19 @@ export default function Hero() {
                             }}
                         />
                     ) : (
-                        // Cloudflare Stream (Iframe fallback for better sizing control)
+                        // Cloudflare Stream (Iframe fallback)
                         <div className="absolute inset-0 w-full h-full opacity-60 pointer-events-none overflow-hidden">
                             <iframe
                                 src={`https://iframe.videodelivery.net/${videoSources[currentVideoIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false`}
-                                className="absolute top-1/2 left-1/2 w-[177.77vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
+                                className="absolute top-0 left-0 w-full h-full object-cover"
                                 style={{
                                     width: '100vw',
                                     height: '100vh',
-                                    objectFit: 'cover'
+                                    border: 'none'
                                 }}
                                 allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                                 allowFullScreen={true}
+                                title="Hero Video"
                             />
                         </div>
                     )}

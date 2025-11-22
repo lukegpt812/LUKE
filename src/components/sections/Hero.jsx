@@ -24,20 +24,22 @@ const creditsItems = [
 
 // Showreel videos - cycling background footage
 const videoSources = [
-    '624e8c9a7dd7903f36233955514cf603', // BATMANFINAL1.mp4 (Cloudflare ID)
-    'https://example.com/placeholder.mp4', // BATMAN2222222.mp4
-    '03eef269edbb1b91a160638fd11c0ab2', // F1_TAG.mp4 (Cloudflare ID)
+    '624e8c9a7dd7903f36233955514cf603', // BATMANFINAL1.mp4
+    'fe75828b8e176d7e9cdd0c859279d420', // BATMAN2222222.mp4
+    '03eef269edbb1b91a160638fd11c0ab2', // F1_TAG.mp4
     'https://example.com/placeholder.mp4', // STORY.mp4
-    '8ca5f98ce4b8d5c4feb6c31bb25bc07d', // Don Bape Revision.mp4 (Cloudflare ID)
+    '8ca5f98ce4b8d5c4feb6c31bb25bc07d', // Don Bape Revision.mp4
     'https://example.com/placeholder.mp4', // Don Rolling Loud 2.mp4
-    '931e264955f0b02b5012e68b83d11334', // Noah Lyles Olympic Promo.mp4 (Cloudflare ID)
-    '1a2fb74818e37ae33f0d9b03e65de40d', // Bike.mp4 (Cloudflare ID)
+    '931e264955f0b02b5012e68b83d11334', // Noah Lyles Olympic Promo.mp4
+    '1a2fb74818e37ae33f0d9b03e65de40d', // Bike.mp4
     'https://example.com/placeholder.mp4', // letsgo.mp4
-    '41e970ca49041730ee7667e06d91bbb2', // rrrrrrr.mp4 (Cloudflare ID)
+    '41e970ca49041730ee7667e06d91bbb2', // rrrrrrr.mp4
     'https://example.com/placeholder.mp4', // final.mp4
     'https://example.com/placeholder.mp4', // MCDAAG.mp4
-    'https://example.com/placeholder.mp4', // Nascar Austin.mp4
-    'https://example.com/placeholder.mp4', // NOCOMMENTS_DON.mp4
+    '5b4a22ef3695e1d3efa83959e6e37e32', // Nascar Austin.mp4
+    'e26deddee598800b086c788c3d6265d9', // NOCOMMENTS_DON.mp4
+    '100023835f44a31dc7f93a3497648c1d', // Vehicle.mp4 (Added)
+    '115b2592db0b3716c559ed95bf446dde', // complex.mp4 (Added)
 ];
 
 export default function Hero() {
@@ -82,10 +84,10 @@ export default function Hero() {
             <AnimatePresence initial={false}>
                 <motion.div
                     key={currentVideoIndex}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 2.0, ease: "linear" }}
                     className="absolute inset-0 z-0"
                 >
                     {videoSources[currentVideoIndex].includes('.') ? (

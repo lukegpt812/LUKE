@@ -2,6 +2,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'fra
 import { useState, useEffect, useRef } from 'react';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import MagneticButton from '../ui/MagneticButton';
+import { Stream } from '@cloudflare/stream-react';
 
 /**
  * HERO SECTION - "LUKE OS BOOT SCREEN" -> "CINEMATIC OPENING"
@@ -23,16 +24,16 @@ const creditsItems = [
 
 // Showreel videos - cycling background footage
 const videoSources = [
-    'https://example.com/placeholder.mp4', // BATMANFINAL1.mp4
+    '624e8c9a7dd7903f36233955514cf603', // BATMANFINAL1.mp4 (Cloudflare ID)
     'https://example.com/placeholder.mp4', // BATMAN2222222.mp4
-    'https://example.com/placeholder.mp4', // F1_TAG.mp4
+    '03eef269edbb1b91a160638fd11c0ab2', // F1_TAG.mp4 (Cloudflare ID)
     'https://example.com/placeholder.mp4', // STORY.mp4
-    'https://example.com/placeholder.mp4', // Don Bape Revision.mp4
+    '8ca5f98ce4b8d5c4feb6c31bb25bc07d', // Don Bape Revision.mp4 (Cloudflare ID)
     'https://example.com/placeholder.mp4', // Don Rolling Loud 2.mp4
-    'https://example.com/placeholder.mp4', // Noah Lyles Olympic Promo.mp4
-    'https://example.com/placeholder.mp4', // Bike.mp4
+    '931e264955f0b02b5012e68b83d11334', // Noah Lyles Olympic Promo.mp4 (Cloudflare ID)
+    '1a2fb74818e37ae33f0d9b03e65de40d', // Bike.mp4 (Cloudflare ID)
     'https://example.com/placeholder.mp4', // letsgo.mp4
-    'https://example.com/placeholder.mp4', // rrrrrrr.mp4
+    '41e970ca49041730ee7667e06d91bbb2', // rrrrrrr.mp4 (Cloudflare ID)
     'https://example.com/placeholder.mp4', // final.mp4
     'https://example.com/placeholder.mp4', // MCDAAG.mp4
     'https://example.com/placeholder.mp4', // Nascar Austin.mp4
@@ -87,20 +88,37 @@ export default function Hero() {
                     transition={{ duration: 1.5, ease: "easeInOut" }}
                     className="absolute inset-0 z-0"
                 >
-                    <video
-                        key={`video-${currentVideoIndex}`}
-                        ref={videoRef}
-                        src={videoSources[currentVideoIndex]}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="absolute inset-0 w-full h-full object-cover opacity-60"
-                        onLoadedMetadata={(e) => {
-                            const randomStart = Math.random() * (e.target.duration * 0.5);
-                            e.target.currentTime = randomStart;
-                        }}
-                    />
+                    {videoSources[currentVideoIndex].includes('.') ? (
+                        // Standard Video (Placeholder)
+                        <video
+                            key={`video-${currentVideoIndex}`}
+                            ref={videoRef}
+                            src={videoSources[currentVideoIndex]}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="absolute inset-0 w-full h-full object-cover opacity-60"
+                            onLoadedMetadata={(e) => {
+                                const randomStart = Math.random() * (e.target.duration * 0.5);
+                                e.target.currentTime = randomStart;
+                            }}
+                        />
+                    ) : (
+                        // Cloudflare Stream
+                        <div className="absolute inset-0 w-full h-full opacity-60">
+                            <Stream
+                                src={videoSources[currentVideoIndex]}
+                                autoplay
+                                loop
+                                muted
+                                controls={false}
+                                responsive={false}
+                                className="w-full h-full object-cover"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
+                        </div>
+                    )}
                     {/* Digital Noise Overlay - Removed missing asset */}
                     {/* <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div> */}
                 </motion.div>

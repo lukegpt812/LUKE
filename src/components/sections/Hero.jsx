@@ -53,8 +53,8 @@ export default function Hero() {
             setCurrentVideoIndex(() => {
                 let newIndex;
                 do {
-                    newIndex = Math.floor(Math.random() * showreelVideos.length);
-                } while (newIndex === currentVideoIndex && showreelVideos.length > 1);
+                    newIndex = Math.floor(Math.random() * videoSources.length);
+                } while (newIndex === currentVideoIndex && videoSources.length > 1);
                 return newIndex;
             });
         }, 3000);
@@ -90,7 +90,7 @@ export default function Hero() {
                     <video
                         key={`video-${currentVideoIndex}`}
                         ref={videoRef}
-                        src={showreelVideos[currentVideoIndex]}
+                        src={videoSources[currentVideoIndex]}
                         autoPlay
                         loop
                         muted
@@ -101,8 +101,8 @@ export default function Hero() {
                             e.target.currentTime = randomStart;
                         }}
                     />
-                    {/* Digital Noise Overlay */}
-                    <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
+                    {/* Digital Noise Overlay - Removed missing asset */}
+                    {/* <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div> */}
                 </motion.div>
             </AnimatePresence>
 

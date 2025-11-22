@@ -43,93 +43,95 @@ const videoSources = [
 ];
 
 export default function Hero() {
-    const [currentVideoIndex, setCurrentVideoIndex] = useState(() =>
-        Math.floor(Math.random() * videoSources.length)
-    );
-    const videoRef = useRef(null);
+    // Double buffer state
+    const [frontIndex, setFrontIndex] = useState(() => Math.floor(Math.random() * videoSources.length));
+    const [backIndex, setBackIndex] = useState(() => {
+        let idx;
+        do {
+            idx = Math.floor(Math.random() * videoSources.length);
+        } while (idx === Math.floor(Math.random() * videoSources.length) && videoSources.length > 1);
+        return idx;
+    });
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
     const containerRef = useRef(null);
     const { scrollY } = useScroll();
 
-    // Auto-cycle videos with random selection
+    // Cycle videos
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentVideoIndex(() => {
-                let newIndex;
-                do {
-                    newIndex = Math.floor(Math.random() * videoSources.length);
-                } while (newIndex === currentVideoIndex && videoSources.length > 1);
-                return newIndex;
-            });
-        }, 3000);
-        return () => clearInterval(interval);
-    }, [currentVideoIndex]);
+        const cycleInterval = setInterval(() => {
+            setIsTransitioning(true);
 
-    // Random start time for each video
-    useEffect(() => {
-        if (videoRef.current) {
-            const randomStart = Math.random() * 10;
-            if (videoRef.current.duration > 10) {
-                videoRef.current.currentTime = randomStart;
-            }
-        }
-    }, [currentVideoIndex]);
+            // Wait for transition to finish before swapping
+            setTimeout(() => {
+                setFrontIndex(backIndex);
+                setIsTransitioning(false);
+
+                // Pick new back video
+                setBackIndex(prev => {
+                    let newIndex;
+                    do {
+                        newIndex = Math.floor(Math.random() * videoSources.length);
+                    } while (newIndex === backIndex && videoSources.length > 1);
+                    return newIndex;
+                });
+            }, 2000); // Match transition duration
+
+        }, 6000); // Time between cycles (4s play + 2s transition)
+
+        return () => clearInterval(cycleInterval);
+    }, [backIndex]);
 
     const scrollToSection = (id) => {
         document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    // Robust scaling style to ensure coverage
+    const iframeStyle = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 'max(100vw, 177.78vh)', // Ensure width covers screen OR maintains 16:9 height
+        height: 'max(100vh, 56.25vw)', // Ensure height covers screen OR maintains 16:9 width
+        minWidth: '100%',
+        minHeight: '100%',
+        border: 'none',
+        pointerEvents: 'none'
+    };
+
     return (
         <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black">
-            {/* Full Screen Video Background */}
-            <AnimatePresence initial={false}>
-                <motion.div
-                    key={currentVideoIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 2.0, ease: "linear" }}
-                    className="absolute inset-0 z-0"
-                >
-                    {videoSources[currentVideoIndex].includes('.') ? (
-                        // Standard Video (Placeholder)
-                        <video
-                            key={`video-${currentVideoIndex}`}
-                            ref={videoRef}
-                            src={videoSources[currentVideoIndex]}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="absolute inset-0 w-full h-full object-cover opacity-60"
-                            onLoadedMetadata={(e) => {
-                                const randomStart = Math.random() * (e.target.duration * 0.5);
-                                e.target.currentTime = randomStart;
-                            }}
-                        />
-                    ) : (
-                        // Cloudflare Stream (Iframe fallback)
-                        <div className="absolute inset-0 w-full h-full opacity-60 pointer-events-none overflow-hidden">
-                            <iframe
-                                src={`https://iframe.videodelivery.net/${videoSources[currentVideoIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false`}
-                                className="absolute top-0 left-0 w-full h-full object-cover"
-                                style={{
-                                    width: '100vw',
-                                    height: '100vh',
-                                    border: 'none'
-                                }}
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowFullScreen={true}
-                                title="Hero Video"
-                            />
-                        </div>
-                    )}
-                    {/* Digital Noise Overlay - Removed missing asset */}
-                    {/* <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div> */}
-                </motion.div>
-            </AnimatePresence>
+            {/* Video Layer - Back (Next Video) */}
+            <div className="absolute inset-0 z-0">
+                <iframe
+                    key={`back-${backIndex}`}
+                    src={`https://iframe.videodelivery.net/${videoSources[backIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false`}
+                    style={iframeStyle}
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                    allowFullScreen={true}
+                    title="Background Video"
+                />
+            </div>
+
+            {/* Video Layer - Front (Current Video) */}
+            <motion.div
+                className="absolute inset-0 z-1"
+                animate={{ opacity: isTransitioning ? 0 : 1 }}
+                transition={{ duration: 2.0, ease: "linear" }}
+            >
+                <iframe
+                    key={`front-${frontIndex}`}
+                    src={`https://iframe.videodelivery.net/${videoSources[frontIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false`}
+                    style={iframeStyle}
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                    allowFullScreen={true}
+                    title="Foreground Video"
+                />
+            </motion.div>
 
             {/* Cinematic Vignette Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90 z-10 pointer-events-none" />
 
             {/* Content Overlay - Key Art Layout */}
             <div className="relative z-20 h-full flex flex-col justify-end p-8 md:p-16">

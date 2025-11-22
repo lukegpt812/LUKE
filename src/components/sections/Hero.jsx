@@ -89,15 +89,13 @@ export default function Hero() {
     // Robust scaling style to ensure coverage
     const iframeStyle = {
         position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 'max(100vw, 177.78vh)', // Ensure width covers screen OR maintains 16:9 height
-        height: 'max(100vh, 56.25vw)', // Ensure height covers screen OR maintains 16:9 width
-        minWidth: '100%',
-        minHeight: '100%',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
         border: 'none',
-        pointerEvents: 'none'
+        pointerEvents: 'none',
+        objectFit: 'cover' // Hint for browsers/players
     };
 
     return (
@@ -106,7 +104,7 @@ export default function Hero() {
             <div className="absolute inset-0 z-0">
                 <iframe
                     key={`back-${backIndex}`}
-                    src={`https://iframe.videodelivery.net/${videoSources[backIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false`}
+                    src={`https://iframe.videodelivery.net/${videoSources[backIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
                     style={iframeStyle}
                     allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                     allowFullScreen={true}
@@ -122,7 +120,7 @@ export default function Hero() {
             >
                 <iframe
                     key={`front-${frontIndex}`}
-                    src={`https://iframe.videodelivery.net/${videoSources[frontIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false`}
+                    src={`https://iframe.videodelivery.net/${videoSources[frontIndex]}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
                     style={iframeStyle}
                     allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                     allowFullScreen={true}

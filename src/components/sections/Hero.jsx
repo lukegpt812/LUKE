@@ -106,17 +106,26 @@ export default function Hero() {
                         />
                     ) : (
                         // Cloudflare Stream
-                        <div className="absolute inset-0 w-full h-full opacity-60">
-                            <Stream
-                                src={videoSources[currentVideoIndex]}
-                                autoplay
-                                loop
-                                muted
-                                controls={false}
-                                responsive={false}
-                                className="absolute top-0 left-0 w-full h-full object-cover"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            />
+                        <div className="absolute inset-0 w-full h-full opacity-60 pointer-events-none">
+                            <div className="relative w-full h-full">
+                                <Stream
+                                    src={videoSources[currentVideoIndex]}
+                                    autoplay
+                                    loop
+                                    muted
+                                    controls={false}
+                                    responsive={false}
+                                    className="absolute top-0 left-0 w-full h-full object-cover"
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover'
+                                    }}
+                                />
+                            </div>
                         </div>
                     )}
                     {/* Digital Noise Overlay - Removed missing asset */}

@@ -14,8 +14,8 @@ const clientsData = [
         name: 'Don Toliver',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/86660d4c-724c-4efc-7d59-a46aa4cbb100/public',
         width: 160,
-        // Fixed white box: Black BG -> Screen -> Transparent
-        filterClass: 'mix-blend-screen opacity-60 group-hover:opacity-100',
+        // User requested invert: Likely White BG -> Black BG (blends with site)
+        filterClass: 'invert opacity-60 group-hover:opacity-100',
     },
     {
         id: 2,

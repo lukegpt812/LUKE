@@ -71,7 +71,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 1.5 }}
-                        className="hidden md:flex gap-12"
+                        className="flex self-start md:self-auto gap-8 md:gap-12"
                     >
                         {creditsItems.map((item, index) => (
                             <div key={index} className="flex flex-col gap-1">

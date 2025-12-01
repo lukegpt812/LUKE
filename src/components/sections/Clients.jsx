@@ -20,10 +20,10 @@ const clientsData = [
     {
         id: 2,
         name: 'NASCAR',
-        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/220025de-cf62-48f4-9ed6-ba214f92a800/public',
+        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/d7870593-dd1d-4a3b-227c-40c27628d300/public',
         width: 140,
-        // Fixed: Invert turns Black text White. Hue-rotate 180 restores original colors (Red/Blue/Yellow).
-        filterClass: 'invert hue-rotate-180 opacity-60 group-hover:opacity-100',
+        // New logo has black bg: Screen blends it perfectly
+        filterClass: 'mix-blend-screen opacity-60 group-hover:opacity-100',
     },
     {
         id: 3,

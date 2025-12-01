@@ -91,7 +91,10 @@ export default function Clients() {
                             <img
                                 src={client.logo}
                                 alt={`${client.name} logo`}
-                                style={{ transform: `scale(${client.scale || 1})` }}
+                                style={{
+                                    transform: `scale(${client.scale || 1})`,
+                                    width: client.width ? `${client.width}px` : 'auto'
+                                }}
                                 className={`max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-110 ${client.filterClass}`}
                             />
                         </motion.div>

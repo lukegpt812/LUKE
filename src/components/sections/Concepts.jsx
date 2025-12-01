@@ -126,7 +126,7 @@ const archiveData = [
         title: 'Don Toliver - Rolling Loud',
         category: 'EVENT RECAP',
         cloudflareId: '67600d92356f88aaf41447816d73534b', // Don Rolling Loud.mp4
-        scale: 1.8,
+        scale: 2.5,
         description: 'Definitive festival coverage featuring analog CRT processing, datamosh transitions, and high-fidelity 3D integration.',
     },
     {
@@ -150,7 +150,7 @@ const archiveData = [
         title: 'Saudi Bustan',
         category: 'FESTIVAL RECAP',
         cloudflareId: 'dda6d09403d4bfc765cf61d1607ed4f9', // Saudi Bustan.mp4
-        scale: 1.8,
+        scale: 2.5,
         description: 'Cinematic journey through the MDL BEAST festival in Riyadh, juxtaposing vast desert landscapes with the electric pulse of live performance.',
     },
     {
@@ -158,7 +158,7 @@ const archiveData = [
         title: 'Braman Ad Campaign',
         category: 'COMMERCIAL',
         cloudflareId: '541a1157f2e5b9f7bc14a4be4f667cf2', // FINALGTA.mp4
-        scale: 1.8,
+        scale: 2.5,
         description: 'Avant-garde commercial campaign utilizing generative AI to create surreal, impossible imagery for a luxury automotive brand.',
     },
 ];

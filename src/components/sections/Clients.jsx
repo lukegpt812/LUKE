@@ -14,16 +14,16 @@ const clientsData = [
         name: 'Don Toliver',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/86660d4c-724c-4efc-7d59-a46aa4cbb100/public',
         width: 160,
-        // User requested invert: Likely White BG -> Black BG (blends with site)
-        filterClass: 'invert opacity-60 group-hover:opacity-100',
+        // Fixed: Source is likely White Text on Dark BG. Screen hides Dark BG.
+        filterClass: 'mix-blend-screen opacity-60 group-hover:opacity-100',
     },
     {
         id: 2,
         name: 'NASCAR',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/220025de-cf62-48f4-9ed6-ba214f92a800/public',
         width: 140,
-        // User requested original colors (Red/Blue/Yellow)
-        filterClass: 'opacity-60 group-hover:opacity-100',
+        // Fixed: Invert turns Black text White. Hue-rotate 180 restores original colors (Red/Blue/Yellow).
+        filterClass: 'invert hue-rotate-180 opacity-60 group-hover:opacity-100',
     },
     {
         id: 3,

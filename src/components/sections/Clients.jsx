@@ -12,7 +12,7 @@ const clientsData = [
     {
         id: 1,
         name: 'Don Toliver',
-        logo: 'https://placehold.co/200x100/1a1a1a/ffffff?text=Don+Toliver', // PLACEHOLDER: User will provide next
+        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/86660d4c-724c-4efc-7d59-a46aa4cbb100/public',
         width: 160,
         filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
@@ -28,7 +28,8 @@ const clientsData = [
         name: 'SLAM',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e198692e-5ea7-44b1-100d-33de98745f00/public',
         width: 130,
-        filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
+        // Fixed white box issue: Invert (White text on Black bg) -> Screen (Black bg transparent)
+        filterClass: 'invert mix-blend-screen opacity-60 group-hover:opacity-100',
     },
     {
         id: 4,

@@ -65,7 +65,7 @@ export default function Navigation() {
                         className="relative group"
                     >
                         <motion.img
-                            src="https://imagedelivery.net/QZ6pL2qf1f7q5w7q5w7q5w/aec85e58-2d7a-46e3-a882-1f6c5c1a9600/public"
+                            src="https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/aec85e58-2d7a-46e3-a882-1f6c5c1a9600/public"
                             alt="Luke Abad"
                             className="h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
                             animate={{

@@ -29,7 +29,7 @@ const clientsData = [
         id: 3,
         name: 'SLAM',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e198692e-5ea7-44b1-100d-33de98745f00/public',
-        width: 45, // Scaled 0.5x from 90
+        width: 34, // Scaled 0.75x from 45
         // User requested change: Removing invert to see if original works better
         filterClass: 'opacity-60 group-hover:opacity-100',
     },
@@ -37,7 +37,7 @@ const clientsData = [
         id: 4,
         name: 'TONE',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/f64e937b-bc4a-4e9d-3fe4-ef2be50e5f00/public',
-        width: 40, // Scaled 0.5x from 80
+        width: 30, // Scaled 0.75x from 40
         filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
     {

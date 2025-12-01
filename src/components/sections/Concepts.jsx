@@ -115,11 +115,10 @@ const batmanData = [
 const archiveData = [
     {
         id: 'a1',
-        title: 'Don Toliver - Austin Show',
+        title: 'NASCAR - Austin',
         category: 'SHOW RECAP',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
-        description: 'Immersive recap of the Austin performance, blending raw handheld energy with surreal, custom-rendered 3d worlds.',
+        cloudflareId: '019481d7170b3b82f6db31603809f283', // Nascar Austin.mp4
+        description: '1:1 NASCAR VEHICLE 3D ANIMATION INTRO WITH A HIGH VELOCITY EDIT RECAP',
     },
     {
         id: 'a2',

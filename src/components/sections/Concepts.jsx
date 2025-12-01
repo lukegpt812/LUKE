@@ -126,6 +126,7 @@ const archiveData = [
         title: 'Don Toliver - Rolling Loud',
         category: 'EVENT RECAP',
         cloudflareId: '67600d92356f88aaf41447816d73534b', // Don Rolling Loud.mp4
+        scale: 1.8,
         description: 'Definitive festival coverage featuring analog CRT processing, datamosh transitions, and high-fidelity 3D integration.',
     },
     {
@@ -133,6 +134,7 @@ const archiveData = [
         title: 'Noah Lyles Olympic Promo',
         category: 'CONCEPTUAL',
         cloudflareId: '8fac85aa7ae00ce31a279041eef08a76', // Noah Lyles Olympic Promo.mp4
+        scale: 1.8,
         description: 'Kinetic promotional campaign for Olympic champion Noah Lyles, visualizing raw speed through motion blur and dynamic camera work.',
     },
     {
@@ -140,6 +142,7 @@ const archiveData = [
         title: 'MCDAAG',
         category: 'EVENT',
         cloudflareId: '12c3701a35b8557bbbde1d379c8184ef', // MCDAAG.mp4
+        scale: 1.8,
         description: 'Highlight reel for the McDonald’s All American Games, capturing the explosive athleticism of the next generation of basketball stars.',
     },
     {
@@ -147,6 +150,7 @@ const archiveData = [
         title: 'Saudi Bustan',
         category: 'FESTIVAL RECAP',
         cloudflareId: 'dda6d09403d4bfc765cf61d1607ed4f9', // Saudi Bustan.mp4
+        scale: 1.8,
         description: 'Cinematic journey through the MDL BEAST festival in Riyadh, juxtaposing vast desert landscapes with the electric pulse of live performance.',
     },
     {
@@ -154,6 +158,7 @@ const archiveData = [
         title: 'Braman Ad Campaign',
         category: 'COMMERCIAL',
         cloudflareId: '541a1157f2e5b9f7bc14a4be4f667cf2', // FINALGTA.mp4
+        scale: 1.8,
         description: 'Avant-garde commercial campaign utilizing generative AI to create surreal, impossible imagery for a luxury automotive brand.',
     },
 ];

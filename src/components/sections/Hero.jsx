@@ -23,7 +23,7 @@ const creditsItems = [
 ];
 
 // Consolidated Hero Video (Master Montage)
-const HERO_VIDEO_ID = '8b9543c1e4971310d0524cac09339384';
+const HERO_VIDEO_ID = '392db2abc5f0d8c40bbc46b0c207fa03';
 
 export default function Hero() {
     const containerRef = useRef(null);
@@ -51,7 +51,7 @@ export default function Hero() {
             {/* Master Video Layer */}
             <div className="absolute inset-0 z-0">
                 <iframe
-                    src={`https://iframe.videodelivery.net/${HERO_VIDEO_ID}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
+                    src={`https://iframe.videodelivery.net/${HERO_VIDEO_ID}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover&playsinline=true&controls=false`}
                     style={iframeStyle}
                     allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                     allowFullScreen={true}

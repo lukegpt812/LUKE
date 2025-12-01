@@ -15,10 +15,10 @@ import { fadeInUp } from '../../config/motion';
 const conceptsData = [
     {
         id: 1,
-        title: 'Sculptural Armor Studies',
+        title: 'Analog Media & Artifact Design',
         category: 'CONCEPT DESIGN',
-        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/96b455bf-9c3c-4fff-ecff-ec421c841600/public',
-        description: 'Explorations in form-driven fashion, inspired by industrial materials, character design, and worldbuilding silhouettes.',
+        cloudflareId: '41e970ca49041730ee7667e06d91bbb2', // rrrrrrr.mp4
+        description: 'Conceptual explorations of analog technology reimagined through the Octane universe. Weathered vinyl, scorched album art, and branded relics merge music culture with dystopian materiality, shaping a physical narrative layer within the world’s visual language.',
     },
     {
         id: 2,

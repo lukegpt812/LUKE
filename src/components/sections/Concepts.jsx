@@ -77,8 +77,8 @@ const batmanData = [
         id: 'b2',
         title: 'Batpod Tech Demo',
         category: 'VEHICLE DESIGN',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
+        cloudflareId: '100023835f44a31dc7f93a3497648c1d', // Vehicle.mp4
+        scale: 1.35,
         description: 'High-octane technical demonstration of the Batpod, focusing on suspension kinematics, tire deformation, and volumetric lighting integration.',
     },
     {
@@ -97,10 +97,10 @@ const batmanData = [
     },
     {
         id: 'b5',
-        title: 'Complex Character Animation',
+        title: 'Dynamic Fight Sequence',
         category: 'CHARACTER ANIMATION',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
+        cloudflareId: '115b2592db0b3716c559ed95bf446dde', // complex.mp4
+        scale: 1.35,
         description: 'Advanced locomotion study analyzing weight distribution, cloth simulation, and combat fluidity in complex character animation.',
     },
     {

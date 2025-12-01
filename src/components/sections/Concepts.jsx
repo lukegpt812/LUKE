@@ -67,11 +67,11 @@ const tabs = [
 
 const batmanData = [
     {
-        id: 'b1',
-        title: 'Freeze Lair Environment',
-        category: 'ENVIRONMENT DESIGN',
-        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e17d4f7d-f75d-4f41-4285-d520540eaa00/public',
-        description: 'A visceral study of cryogenic atmospheres, exploring sub-zero lighting dynamics and industrial frost textures for Mr. Freeze’s sanctuary.',
+        id: 'b6',
+        title: 'Suit Silhouette',
+        category: 'COSTUME DESIGN',
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/52b1236a-1a52-46da-9864-0105babbb300/public',
+        description: 'Iconographic silhouette exploration emphasizing the cowl geometry, cape physics, and the symbolic weight of the insignia.',
     },
     {
         id: 'b2',
@@ -104,11 +104,11 @@ const batmanData = [
         description: 'Advanced locomotion study analyzing weight distribution, cloth simulation, and combat fluidity in complex character animation.',
     },
     {
-        id: 'b6',
-        title: 'Suit Silhouette',
-        category: 'COSTUME DESIGN',
-        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/52b1236a-1a52-46da-9864-0105babbb300/public',
-        description: 'Iconographic silhouette exploration emphasizing the cowl geometry, cape physics, and the symbolic weight of the insignia.',
+        id: 'b1',
+        title: 'Freeze Lair Environment',
+        category: 'ENVIRONMENT DESIGN',
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e17d4f7d-f75d-4f41-4285-d520540eaa00/public',
+        description: 'A visceral study of cryogenic atmospheres, exploring sub-zero lighting dynamics and industrial frost textures for Mr. Freeze’s sanctuary.',
     },
 ];
 

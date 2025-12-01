@@ -78,14 +78,6 @@ export default function Contact() {
                                 >
                                     Instagram
                                 </a>
-                                <a
-                                    href="https://www.linkedin.com/in/luke-abad-bb7b1b2b0?trk=people-guest_people_search-card"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
-                                >
-                                    LinkedIn
-                                </a>
                             </div>
                         </div>
                     </div>

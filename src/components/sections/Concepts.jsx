@@ -38,21 +38,21 @@ const conceptsData = [
         id: 4,
         title: 'Material & Surface Research',
         category: 'TEXTURE + DETAILING',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Material+Research', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/95cfa9cc-d40a-45d3-a0da-fc132332d100/public',
         description: 'Close-range studies of wear, heat, metal, and industrial decay for use in worldbuilding and prop design.',
     },
     {
         id: 5,
         title: 'Graphic Identity Experiments',
         category: 'DESIGN LANGUAGE',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Graphic+Identity', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/27ba8221-4bcd-4b49-9e26-0219b65f1f00/public',
         description: 'Visual identity explorations combining poster design, color theory, and AI-enhanced composition.',
     },
     {
         id: 6,
         title: 'Stage Architecture & Spatial Systems',
         category: 'SET + ARCHITECTURE',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Stage+Architecture', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/c746e984-1aed-4c35-3b9e-01c12db9f300/public',
         description: 'Blueprint-driven explorations of stage design, spatial rhythm, and modular performance environments.',
     },
 ];

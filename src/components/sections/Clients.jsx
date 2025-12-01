@@ -22,15 +22,16 @@ const clientsData = [
         name: 'NASCAR',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/220025de-cf62-48f4-9ed6-ba214f92a800/public',
         width: 140,
-        filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
+        // User requested original colors (Red/Blue/Yellow)
+        filterClass: 'opacity-60 group-hover:opacity-100',
     },
     {
         id: 3,
         name: 'SLAM',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e198692e-5ea7-44b1-100d-33de98745f00/public',
         width: 130,
-        // Fixed: Black text on White BG -> Invert -> White text on Black BG (matches site)
-        filterClass: 'invert opacity-60 group-hover:opacity-100',
+        // User requested change: Removing invert to see if original works better
+        filterClass: 'opacity-60 group-hover:opacity-100',
     },
     {
         id: 4,

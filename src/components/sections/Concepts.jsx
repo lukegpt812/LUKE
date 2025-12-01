@@ -92,7 +92,7 @@ const batmanData = [
         id: 'b4',
         title: 'Suit Interface Schematics',
         category: 'UI DESIGN',
-        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/52b1236a-1a52-46da-9864-0105babbb300/public',
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/42ccd88b-bde2-4bfc-56a8-15d2fb381d00/public',
         description: 'Schematic breakdown of the tactical suit interface, detailing HUD overlays, biometric telemetry, and armor integrity systems.',
     },
     {
@@ -107,7 +107,7 @@ const batmanData = [
         id: 'b6',
         title: 'Suit Silhouette',
         category: 'COSTUME DESIGN',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Suit+Silhouette', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/52b1236a-1a52-46da-9864-0105babbb300/public',
         description: 'Iconographic silhouette exploration emphasizing the cowl geometry, cape physics, and the symbolic weight of the insignia.',
     },
 ];

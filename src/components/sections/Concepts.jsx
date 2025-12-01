@@ -14,17 +14,18 @@ import { fadeInUp } from '../../config/motion';
 
 const conceptsData = [
     {
-        id: 1,
-        title: 'Analog Media & Artifact Design',
-        category: 'CONCEPT DESIGN',
-        cloudflareId: '41e970ca49041730ee7667e06d91bbb2', // rrrrrrr.mp4
-        description: 'Conceptual explorations of analog technology reimagined through the Octane universe. Weathered vinyl, scorched album art, and branded relics merge music culture with dystopian materiality, shaping a physical narrative layer within the world’s visual language.',
+        id: 5,
+        title: 'Graphic Identity Experiments',
+        category: 'DESIGN LANGUAGE',
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/27ba8221-4bcd-4b49-9e26-0219b65f1f00/public',
+        description: 'Visual identity explorations combining poster design, color theory, and AI-enhanced composition.',
     },
     {
         id: 2,
         title: 'Jewelry & Artifact Systems',
         category: 'PRODUCT DESIGN',
         cloudflareId: 'a133a210bee40136a1372dd946cd594d', // letsgo.mp4
+        scale: 1.35,
         description: 'High-fidelity object studies for cinematic assets, blending luxury materials with post-apocalyptic motifs.',
     },
     {
@@ -35,25 +36,26 @@ const conceptsData = [
         description: 'Comprehensive study of props and materials, exploring distressed surfaces and industrial textures to define the physical language of the world.',
     },
     {
-        id: 4,
-        title: 'Material & Surface Research',
-        category: 'TEXTURE + DETAILING',
-        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/95cfa9cc-d40a-45d3-a0da-fc132332d100/public',
-        description: 'Close-range studies of wear, heat, metal, and industrial decay for use in worldbuilding and prop design.',
-    },
-    {
-        id: 5,
-        title: 'Graphic Identity Experiments',
-        category: 'DESIGN LANGUAGE',
-        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/27ba8221-4bcd-4b49-9e26-0219b65f1f00/public',
-        description: 'Visual identity explorations combining poster design, color theory, and AI-enhanced composition.',
-    },
-    {
         id: 6,
         title: 'Stage Architecture & Spatial Systems',
         category: 'SET + ARCHITECTURE',
         image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/c746e984-1aed-4c35-3b9e-01c12db9f300/public',
         description: 'Blueprint-driven explorations of stage design, spatial rhythm, and modular performance environments.',
+    },
+    {
+        id: 1,
+        title: 'Analog Media & Artifact Design',
+        category: 'CONCEPT DESIGN',
+        cloudflareId: '41e970ca49041730ee7667e06d91bbb2', // rrrrrrr.mp4
+        scale: 1.35,
+        description: 'Conceptual explorations of analog technology reimagined through the Octane universe. Weathered vinyl, scorched album art, and branded relics merge music culture with dystopian materiality.',
+    },
+    {
+        id: 4,
+        title: 'Material & Surface Research',
+        category: 'TEXTURE + DETAILING',
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/95cfa9cc-d40a-45d3-a0da-fc132332d100/public',
+        description: 'Close-range studies of wear, heat, metal, and industrial decay for use in worldbuilding and prop design.',
     },
 ];
 
@@ -246,6 +248,7 @@ export default function Concepts() {
                                     <iframe
                                         src={`https://iframe.videodelivery.net/${concept.cloudflareId}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
                                         className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                        style={concept.scale ? { transform: `scale(${concept.scale})` } : {}}
                                         allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                                         allowFullScreen={true}
                                         title={concept.title}

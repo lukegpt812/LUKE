@@ -12,37 +12,42 @@ const clientsData = [
     {
         id: 1,
         name: 'Don Toliver',
-        logo: 'https://placehold.co/200x100/1a1a1a/ffffff?text=Don+Toliver', // PLACEHOLDER
-        width: 160
+        logo: 'https://placehold.co/200x100/1a1a1a/ffffff?text=Don+Toliver', // PLACEHOLDER: User will provide next
+        width: 160,
+        filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
     {
         id: 2,
         name: 'NASCAR',
-        logo: 'https://placehold.co/200x100/1a1a1a/ffffff?text=NASCAR', // PLACEHOLDER
-        width: 140
+        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/220025de-cf62-48f4-9ed6-ba214f92a800/public',
+        width: 140,
+        filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
     {
         id: 3,
         name: 'SLAM',
-        logo: 'https://placehold.co/200x100/1a1a1a/ffffff?text=SLAM', // PLACEHOLDER
-        width: 130
+        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e198692e-5ea7-44b1-100d-33de98745f00/public',
+        width: 130,
+        filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
     {
         id: 4,
-        name: 'Cactus Jack',
-        logo: 'https://placehold.co/200x100/1a1a1a/ffffff?text=Cactus+Jack', // PLACEHOLDER: No local file found, assuming placeholder needed
-        width: 120
+        name: 'TONE',
+        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/f64e937b-bc4a-4e9d-3fe4-ef2be50e5f00/public',
+        width: 120,
+        filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
     {
         id: 5,
         name: 'Wieden+Kennedy',
+        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/7d5f3bd4-d8e2-4c9b-d426-e4f9f7b03300/public',
         filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
         scale: 1.4
     },
     {
         id: 6,
         name: 'Wonder Studios',
-        logo: '/CLIENTS/WonderStudios-1024x561.png',
+        logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/0fe039e9-86fd-4cc9-003e-d31ee4767f00/public',
         // Black background fix: Screen (black bg->transparent, white text stays white)
         filterClass: 'mix-blend-screen opacity-80 group-hover:opacity-100',
         scale: 1.4

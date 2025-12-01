@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navigation from './components/ui/Navigation';
@@ -34,10 +35,20 @@ function HomePage() {
   );
 }
 
+import Intro from './components/ui/Intro';
+
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
   return (
     <Router>
       <div className="bg-black min-h-screen text-white selection:bg-accent-purple selection:text-white">
+        <AnimatePresence mode="wait">
+          {showIntro && (
+            <Intro onComplete={() => setShowIntro(false)} />
+          )}
+        </AnimatePresence>
+
         <CustomCursor />
 
         {/* Cinematic Vignette */}

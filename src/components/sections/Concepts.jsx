@@ -31,7 +31,7 @@ const conceptsData = [
         id: 3,
         title: 'Prop and Material Design',
         category: 'DESIGN LANGUAGE',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Prop+Design', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/4a1f3184-8d3e-40b7-9350-472a72c6dd00/public',
         description: 'Comprehensive study of props and materials, exploring distressed surfaces and industrial textures to define the physical language of the world.',
     },
     {

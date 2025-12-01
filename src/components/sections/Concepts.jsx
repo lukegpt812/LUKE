@@ -70,7 +70,7 @@ const batmanData = [
         id: 'b1',
         title: 'Freeze Lair Environment',
         category: 'ENVIRONMENT DESIGN',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Freeze+Lair', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e17d4f7d-f75d-4f41-4285-d520540eaa00/public',
         description: 'A visceral study of cryogenic atmospheres, exploring sub-zero lighting dynamics and industrial frost textures for Mr. Freeze’s sanctuary.',
     },
     {
@@ -85,14 +85,14 @@ const batmanData = [
         id: 'b3',
         title: 'Alley Confrontation',
         category: 'KEYFRAME ART',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Alley+Confrontation', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/86d9c0b6-0216-4db8-a3dd-6c123caf4d00/public',
         description: 'Noir-inspired atmospheric keyframe establishing the gritty, rain-slicked tonal palette of a high-stakes street confrontation.',
     },
     {
         id: 'b4',
         title: 'Suit Interface Schematics',
         category: 'UI DESIGN',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Suit+Schematics', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/52b1236a-1a52-46da-9864-0105babbb300/public',
         description: 'Schematic breakdown of the tactical suit interface, detailing HUD overlays, biometric telemetry, and armor integrity systems.',
     },
     {

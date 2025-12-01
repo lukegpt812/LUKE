@@ -127,7 +127,7 @@ const archiveData = [
         category: 'EVENT RECAP',
         cloudflareId: '67600d92356f88aaf41447816d73534b', // Don Rolling Loud.mp4
         scale: 2.5,
-        description: 'Definitive festival coverage featuring analog CRT processing, datamosh transitions, and high-fidelity 3D integration.',
+        description: 'Definitive festival coverage featuring analog CRT processing, VHS transitions, and high-fidelity 3D integration.',
     },
     {
         id: 'a3',
@@ -135,7 +135,7 @@ const archiveData = [
         category: 'CONCEPTUAL',
         cloudflareId: '8fac85aa7ae00ce31a279041eef08a76', // Noah Lyles Olympic Promo.mp4
         scale: 1.8,
-        description: 'Kinetic promotional campaign for Olympic champion Noah Lyles, visualizing raw speed through motion blur and dynamic camera work.',
+        description: 'Kinetic promotional campaign for Olympic champion Noah Lyles, visualizing raw speed through various mediums and dynamic movement.',
     },
     {
         id: 'a4',
@@ -151,7 +151,7 @@ const archiveData = [
         category: 'FESTIVAL RECAP',
         cloudflareId: 'dda6d09403d4bfc765cf61d1607ed4f9', // Saudi Bustan.mp4
         scale: 2.5,
-        description: 'Cinematic journey through the MDL BEAST festival in Riyadh, juxtaposing vast desert landscapes with the electric pulse of live performance.',
+        description: 'Cinematic journey through the MDL BEAST festival in Riyadh, juxtaposing psychedelic intimacy with the electric pulse of live performance.',
     },
     {
         id: 'a6',

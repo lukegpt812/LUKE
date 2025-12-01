@@ -17,14 +17,14 @@ const conceptsData = [
         id: 1,
         title: 'Sculptural Armor Studies',
         category: 'CONCEPT DESIGN',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Armor+Study', // PLACEHOLDER
+        image: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/96b455bf-9c3c-4fff-ecff-ec421c841600/public',
         description: 'Explorations in form-driven fashion, inspired by industrial materials, character design, and worldbuilding silhouettes.',
     },
     {
         id: 2,
         title: 'Jewelry & Artifact Systems',
         category: 'PRODUCT DESIGN',
-        image: 'https://placehold.co/600x800/1a1a1a/ffffff?text=Artifact+System', // PLACEHOLDER
+        cloudflareId: 'a133a210bee40136a1372dd946cd594d', // letsgo.mp4
         description: 'High-fidelity object studies for cinematic assets, blending luxury materials with post-apocalyptic motifs.',
     },
     {
@@ -241,8 +241,16 @@ export default function Concepts() {
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 className="group relative aspect-[3/4] rounded-lg overflow-hidden cursor-pointer bg-white/5"
                             >
-                                {/* Media (Image or Video) */}
-                                {concept.isVideo ? (
+                                {/* Media (Image, Video, or Cloudflare Stream) */}
+                                {concept.cloudflareId ? (
+                                    <iframe
+                                        src={`https://iframe.videodelivery.net/${concept.cloudflareId}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
+                                        className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                        allowFullScreen={true}
+                                        title={concept.title}
+                                    />
+                                ) : concept.isVideo ? (
                                     <video
                                         src={concept.image}
                                         muted

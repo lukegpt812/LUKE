@@ -37,7 +37,7 @@ const clientsData = [
         id: 4,
         name: 'TONE',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/f64e937b-bc4a-4e9d-3fe4-ef2be50e5f00/public',
-        width: 160, // Doubled to 160px
+        width: 140, // Adjusted to 140px
         filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
     {

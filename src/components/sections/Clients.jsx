@@ -29,7 +29,7 @@ const clientsData = [
         id: 3,
         name: 'SLAM',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e198692e-5ea7-44b1-100d-33de98745f00/public',
-        width: 17, // Scaled 0.5x from 34
+        width: 12, // Reduced to 12px
         // User requested change: Removing invert to see if original works better
         filterClass: 'opacity-60 group-hover:opacity-100',
     },
@@ -37,7 +37,7 @@ const clientsData = [
         id: 4,
         name: 'TONE',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/f64e937b-bc4a-4e9d-3fe4-ef2be50e5f00/public',
-        width: 15, // Scaled 0.5x from 30
+        width: 10, // Reduced to 10px
         filterClass: 'brightness-0 invert opacity-60 group-hover:opacity-100',
     },
     {
@@ -93,9 +93,10 @@ export default function Clients() {
                                 alt={`${client.name} logo`}
                                 style={{
                                     transform: `scale(${client.scale || 1})`,
-                                    width: client.width ? `${client.width}px` : 'auto'
+                                    width: client.width ? `${client.width}px` : 'auto',
+                                    height: client.width ? 'auto' : undefined
                                 }}
-                                className={`max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-110 ${client.filterClass}`}
+                                className={`${client.width ? '' : 'max-h-full max-w-full'} object-contain transition-all duration-300 group-hover:scale-110 ${client.filterClass}`}
                             />
                         </motion.div>
                     ))}

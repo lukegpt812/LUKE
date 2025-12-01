@@ -14,8 +14,8 @@ const clientsData = [
         name: 'Don Toliver',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/86660d4c-724c-4efc-7d59-a46aa4cbb100/public',
         width: 160,
-        // Assuming Black text on White bg: Invert -> White on Black -> Screen -> White on Transparent
-        filterClass: 'invert mix-blend-screen opacity-60 group-hover:opacity-100',
+        // Fixed white box: Black BG -> Screen -> Transparent
+        filterClass: 'mix-blend-screen opacity-60 group-hover:opacity-100',
     },
     {
         id: 2,
@@ -29,8 +29,8 @@ const clientsData = [
         name: 'SLAM',
         logo: 'https://imagedelivery.net/nNcXF1Rmo2BLAhLpEz0bOw/e198692e-5ea7-44b1-100d-33de98745f00/public',
         width: 130,
-        // Fixed white box: Assuming White text on Black bg -> Screen -> White on Transparent
-        filterClass: 'mix-blend-screen opacity-60 group-hover:opacity-100',
+        // Fixed: Black text on White BG -> Invert -> White text on Black BG (matches site)
+        filterClass: 'invert opacity-60 group-hover:opacity-100',
     },
     {
         id: 4,

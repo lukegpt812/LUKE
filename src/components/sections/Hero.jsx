@@ -22,141 +22,42 @@ const creditsItems = [
     { label: 'FOCUS', value: 'NARRATIVE & SYSTEMS' },
 ];
 
-// Showreel videos - cycling background footage
-const videoSources = [
-    { id: '624e8c9a7dd7903f36233955514cf603', isVertical: true }, // BATMANFINAL1.mp4
-    { id: 'fe75828b8e176d7e9cdd0c859279d420', isVertical: true }, // BATMAN2222222.mp4
-    { id: '03eef269edbb1b91a160638fd11c0ab2', isVertical: true }, // F1_TAG.mp4
-    { id: '11ce7714c7145cf8de1ea4ec4bd12529', isVertical: true }, // STORY.mp4
-    { id: '8ca5f98ce4b8d5c4feb6c31bb25bc07d', isVertical: false }, // Don Bape Revision.mp4
-    { id: '157b1d1d084c6792d579493bf1d1d5da', isVertical: false }, // Don Rolling Loud 2.mp4
-    { id: '931e264955f0b02b5012e68b83d11334', isVertical: false }, // Noah Lyles Olympic Promo.mp4
-    { id: '1a2fb74818e37ae33f0d9b03e65de40d', isVertical: false }, // Bike.mp4
-    { id: '78a754c1d7e4a9dda0172e07abbeef47', isVertical: true }, // letsgo.mp4
-    { id: '41e970ca49041730ee7667e06d91bbb2', isVertical: true }, // rrrrrrr.mp4
-    { id: '22777ece6ae5576875e3c086ad86db5a', isVertical: false }, // final.mp4
-    { id: '12c3701a35b8557bbbde1d379c8184ef', isVertical: false }, // MCDAAG.mp4
-    { id: '5b4a22ef3695e1d3efa83959e6e37e32', isVertical: false }, // Nascar Austin.mp4
-    { id: 'e26deddee598800b086c788c3d6265d9', isVertical: false }, // NOCOMMENTS_DON.mp4
-    { id: '100023835f44a31dc7f93a3497648c1d', isVertical: false }, // Vehicle.mp4
-    { id: '115b2592db0b3716c559ed95bf446dde', isVertical: false }, // complex.mp4
-];
+// Consolidated Hero Video (Master Montage)
+const HERO_VIDEO_ID = '8b9543c1e4971310d0524cac09339384';
 
 export default function Hero() {
-    // Video Source Management (Shuffle Deck)
-    const [videoDeck, setVideoDeck] = useState([]);
-    const [currentDeckIndex, setCurrentDeckIndex] = useState(0);
-
-    // Initialize/Shuffle Deck
-    useEffect(() => {
-        const shuffle = (array) => {
-            const newArray = [...array];
-            for (let i = newArray.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-            }
-            return newArray;
-        };
-        setVideoDeck(shuffle(videoSources));
-    }, []);
-
-    // Double Buffer State
-    const [frontVideo, setFrontVideo] = useState(null);
-    const [backVideo, setBackVideo] = useState(null);
-    const [isTransitioning, setIsTransitioning] = useState(false);
-
     const containerRef = useRef(null);
-
-    // Initialize First Video
-    useEffect(() => {
-        if (videoDeck.length > 0 && !frontVideo) {
-            setFrontVideo({ ...videoDeck[0], startTime: Math.floor(Math.random() * 10) });
-            setBackVideo({ ...videoDeck[1] || videoDeck[0], startTime: Math.floor(Math.random() * 10) });
-            setCurrentDeckIndex(1);
-        }
-    }, [videoDeck]);
-
-    // Cycle Logic
-    useEffect(() => {
-        if (videoDeck.length === 0) return;
-
-        const cycleInterval = setInterval(() => {
-            setIsTransitioning(true);
-
-            // Prepare next video index
-            let nextIndex = currentDeckIndex + 1;
-            if (nextIndex >= videoDeck.length) {
-                nextIndex = 0;
-                // Optional: Reshuffle here if desired, but simple loop is safer for now
-            }
-
-            setTimeout(() => {
-                // Swap Back to Front
-                setFrontVideo(backVideo);
-                setIsTransitioning(false);
-
-                // Load New Back
-                const nextVid = videoDeck[nextIndex];
-                setBackVideo({ ...nextVid, startTime: Math.floor(Math.random() * 10) });
-                setCurrentDeckIndex(nextIndex);
-            }, 2000); // Transition duration
-
-        }, 3000 + 2000); // 3s play + 2s transition = 5s total interval
-
-        return () => clearInterval(cycleInterval);
-    }, [videoDeck, currentDeckIndex, backVideo]);
+    const { scrollY } = useScroll();
 
     const scrollToSection = (id) => {
         document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    // Helper to get style based on video type
-    const getIframeStyle = (isVertical) => ({
+    // Robust scaling style to ensure coverage
+    const iframeStyle = {
         position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: `translate(-50%, -50%) ${isVertical ? 'scale(1.5)' : 'scale(1)'}`, // Scale up vertical videos
+        top: 0,
+        left: 0,
         width: '100vw',
         height: '100vh',
         border: 'none',
         pointerEvents: 'none',
         objectFit: 'cover',
         zIndex: -1
-    });
+    };
 
     return (
         <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black">
-            {/* Back Layer (Next Video) */}
+            {/* Master Video Layer */}
             <div className="absolute inset-0 z-0">
-                {backVideo && (
-                    <iframe
-                        key={`${backVideo.id}-${backVideo.startTime}`}
-                        src={`https://iframe.videodelivery.net/${backVideo.id}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover&startTime=${backVideo.startTime}`}
-                        style={getIframeStyle(backVideo.isVertical)}
-                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                        allowFullScreen={true}
-                        title="Background Video"
-                    />
-                )}
+                <iframe
+                    src={`https://iframe.videodelivery.net/${HERO_VIDEO_ID}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
+                    style={iframeStyle}
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                    allowFullScreen={true}
+                    title="Hero Master Video"
+                />
             </div>
-
-            {/* Front Layer (Current Video) */}
-            <motion.div
-                className="absolute inset-0 z-1"
-                animate={{ opacity: isTransitioning ? 0 : 1 }}
-                transition={{ duration: 2.0, ease: "linear" }}
-            >
-                {frontVideo && (
-                    <iframe
-                        key={`${frontVideo.id}-${frontVideo.startTime}`}
-                        src={`https://iframe.videodelivery.net/${frontVideo.id}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover&startTime=${frontVideo.startTime}`}
-                        style={getIframeStyle(frontVideo.isVertical)}
-                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                        allowFullScreen={true}
-                        title="Foreground Video"
-                    />
-                )}
-            </motion.div>
 
             {/* Cinematic Vignette Gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90 z-10 pointer-events-none" />

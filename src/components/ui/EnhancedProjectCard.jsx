@@ -39,6 +39,7 @@ export default function EnhancedProjectCard({ project, index }) {
                     <iframe
                         src={`https://iframe.videodelivery.net/${project.cloudflareId}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
                         className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
+                        style={project.isVertical ? { transform: 'scale(1.5)' } : {}}
                         allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                         allowFullScreen={true}
                         title={project.title}
@@ -51,6 +52,7 @@ export default function EnhancedProjectCard({ project, index }) {
                         muted
                         playsInline
                         className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+                        style={project.isVertical ? { transform: 'scale(1.5)' } : {}}
                     />
                 )}
 

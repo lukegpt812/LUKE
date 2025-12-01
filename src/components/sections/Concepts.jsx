@@ -118,47 +118,42 @@ const archiveData = [
         title: 'NASCAR - Austin',
         category: 'RACE RECAP',
         cloudflareId: '019481d7170b3b82f6db31603809f283', // Nascar Austin.mp4
-        scale: 1.35,
-        description: 'High-velocity race recap featuring a 1:1 3D NASCAR animation intro, blending track-side energy with precision motion graphics.',
+        scale: 1.8,
+        description: 'High-velocity race recap featuring a 1:1 NASCAR vehicle, blending track-side energy with precision motion graphics.',
     },
     {
         id: 'a2',
         title: 'Don Toliver - Rolling Loud',
         category: 'EVENT RECAP',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
+        cloudflareId: '67600d92356f88aaf41447816d73534b', // Don Rolling Loud.mp4
         description: 'Definitive festival coverage featuring analog CRT processing, datamosh transitions, and high-fidelity 3D integration.',
     },
     {
         id: 'a3',
         title: 'Noah Lyles Olympic Promo',
         category: 'CONCEPTUAL',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
+        cloudflareId: '8fac85aa7ae00ce31a279041eef08a76', // Noah Lyles Olympic Promo.mp4
         description: 'Kinetic promotional campaign for Olympic champion Noah Lyles, visualizing raw speed through motion blur and dynamic camera work.',
     },
     {
         id: 'a4',
         title: 'MCDAAG',
         category: 'EVENT',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
+        cloudflareId: '12c3701a35b8557bbbde1d379c8184ef', // MCDAAG.mp4
         description: 'Highlight reel for the McDonald’s All American Games, capturing the explosive athleticism of the next generation of basketball stars.',
     },
     {
         id: 'a5',
         title: 'Saudi Bustan',
         category: 'FESTIVAL RECAP',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
+        cloudflareId: 'dda6d09403d4bfc765cf61d1607ed4f9', // Saudi Bustan.mp4
         description: 'Cinematic journey through the MDL BEAST festival in Riyadh, juxtaposing vast desert landscapes with the electric pulse of live performance.',
     },
     {
         id: 'a6',
         title: 'Braman Ad Campaign',
         category: 'COMMERCIAL',
-        image: 'https://example.com/placeholder.mp4', // PLACEHOLDER
-        isVideo: true,
+        cloudflareId: '541a1157f2e5b9f7bc14a4be4f667cf2', // FINALGTA.mp4
         description: 'Avant-garde commercial campaign utilizing generative AI to create surreal, impossible imagery for a luxury automotive brand.',
     },
 ];

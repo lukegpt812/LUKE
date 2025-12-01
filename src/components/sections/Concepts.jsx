@@ -116,9 +116,10 @@ const archiveData = [
     {
         id: 'a1',
         title: 'NASCAR - Austin',
-        category: 'SHOW RECAP',
+        category: 'RACE RECAP',
         cloudflareId: '019481d7170b3b82f6db31603809f283', // Nascar Austin.mp4
-        description: '1:1 NASCAR VEHICLE 3D ANIMATION INTRO WITH A HIGH VELOCITY EDIT RECAP',
+        scale: 1.35,
+        description: 'High-velocity race recap featuring a 1:1 3D NASCAR animation intro, blending track-side energy with precision motion graphics.',
     },
     {
         id: 'a2',

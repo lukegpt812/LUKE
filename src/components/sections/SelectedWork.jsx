@@ -31,7 +31,7 @@ const projectsData = [
         category: 'EXPERIMENTAL',
         title: 'WAKE UP F1LTHY — Carti × Travis (AI Concept)',
         description: 'A high-energy conceptual piece reimagining Playboi Carti and Travis Scott through AI built scenes and outfits.',
-        video: 'https://example.com/placeholder.mp4', // PLACEHOLDER: Replace with Cloudflare URL
+        cloudflareId: '22777ece6ae5576875e3c086ad86db5a', // final.mp4
         tags: ['Experimental', 'AI', 'Concept'],
         role: 'Creative Technologist',
         year: '2025'
@@ -41,7 +41,7 @@ const projectsData = [
         category: 'FILM / AI VISUAL',
         title: 'Breaking the Ice — Batman Concept',
         description: 'A cinematic short of Batman vs. Mr. Freeze reinterpreted through AI-driven environments, stylized augmentation, and atmospheric world design — merging Gotham\'s cold mythology with next-gen visual tools.',
-        video: 'https://example.com/placeholder.mp4', // PLACEHOLDER: Replace with Cloudflare URL
+        cloudflareId: 'fe75828b8e176d7e9cdd0c859279d420', // BATMAN2222222.mp4
         tags: ['Film', 'AI', 'Cinematic'],
         isVertical: true,
         role: 'Creative Technologist',
@@ -52,7 +52,7 @@ const projectsData = [
         category: 'COMMERCIAL',
         title: 'TAG Heuer — F1 Concept Campaign',
         description: 'A conceptual brand film exploring TAG Heuer\'s racing heritage through gritty motion, track-level texture, and AI-accelerated commercial storytelling for a modern Formula 1 identity.',
-        video: 'https://example.com/placeholder.mp4', // PLACEHOLDER: Replace with Cloudflare URL
+        cloudflareId: '03eef269edbb1b91a160638fd11c0ab2', // F1_TAG.mp4
         tags: ['Commercial', 'Brand', 'F1'],
         isVertical: true,
         role: 'Editor',

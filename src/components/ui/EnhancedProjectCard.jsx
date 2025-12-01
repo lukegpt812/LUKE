@@ -34,14 +34,25 @@ export default function EnhancedProjectCard({ project, index }) {
             {/* Main Card Container - Film Slate Aspect Ratio */}
             <div className="relative aspect-video overflow-hidden bg-black rounded-sm border border-white/5 group-hover:border-accent-purple/50 transition-colors duration-500">
                 {/* Video - Always Playing */}
-                <video
-                    src={project.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
-                />
+                {/* Video - Conditional Render for Cloudflare or Standard */}
+                {project.cloudflareId ? (
+                    <iframe
+                        src={`https://iframe.videodelivery.net/${project.cloudflareId}?background=1&autoplay=true&loop=true&muted=true&preload=true&responsive=false&fit=cover`}
+                        className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
+                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                        allowFullScreen={true}
+                        title={project.title}
+                    />
+                ) : (
+                    <video
+                        src={project.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+                    />
+                )}
 
                 {/* Cinematic Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500 z-10" />
